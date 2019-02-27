@@ -6,7 +6,8 @@ cd /tmp/adultchain
 #curl -Lo adultchain.tar.gz $adultchainlink
 wget https://github.com/zoldur/AdultChain/releases/download/v1.2.2.0/adultchain.tar.gz
 tar -xzf adultchain.tar.gz
-sudo mv ./bin/* /usr/local/bin
+sudo mv adultchain-cli /usr/local/bin
+sudo mv adultchaind /usr/local/bin
 cd
 rm -rf /tmp/adultchain
 mkdir ~/.adultchain
