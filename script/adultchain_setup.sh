@@ -140,7 +140,7 @@ const config = {
   },
   'coinMarketCap': {
     'api': 'http://api.coinmarketcap.com/v1/ticker/',
-    'ticker': 'bulwark'
+    'ticker': 'xxx'
   },
   'db': {
     'host': '127.0.0.1',
@@ -190,4 +190,4 @@ EOL
     # installBulwark
     installNodeAndYarn
     # installBlockEx
-    echo "Finished installation!"
+    echo "Almost finished... now run: adultchain_finish.sh"
