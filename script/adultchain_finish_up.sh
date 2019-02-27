@@ -8,7 +8,7 @@ installBulwark () {
 #    cd
 #    rm -rf /tmp/bulwark
 #    mkdir -p /home/explorer/.bulwark
-    cat > /home/explorer/.adultchain/adultchain.conf << EOL
+    cat > /root/.adultchain/adultchain.conf << EOL
 rpcport=52544
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
