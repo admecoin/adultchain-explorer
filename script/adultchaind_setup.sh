@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Setup
+echo "Updating system..."
+sudo apt-get update -y
+sudo apt-get install -y apt-transport-https build-essential cron curl gcc git g++ make sudo vim wget
+clear
+
+
+
+
 # deps
 apt-get update
 apt-get upgrade -y
