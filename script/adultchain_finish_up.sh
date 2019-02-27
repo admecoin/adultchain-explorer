@@ -15,22 +15,7 @@ rpcpassword=$rpcpassword
 daemon=1
 txindex=1
 EOL
-    sudo cat > /etc/systemd/system/adulchaind.service << EOL
-[Unit]
-Description=adultchaind
-After=network.target
-[Service]
-Type=forking
-User=explorer
-WorkingDirectory=/home/explorer
-ExecStart=/home/explorer/bin/adultchaind -datadir=/home/explorer/.adultchain
-ExecStop=/home/explorer/bin/adultchain-cli -datadir=/home/explorer/.adultchain stop
-Restart=on-abort
-[Install]
-WantedBy=multi-user.target
-EOL
-    sudo systemctl start adultchaind
-    sudo systemctl enable adultchaind
+    adultchaind
     echo "Sleeping for 1 hour while node syncs blockchain..."
     sleep 1h
     clear
