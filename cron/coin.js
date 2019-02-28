@@ -1,7 +1,7 @@
 let currentPath = process.cwd();
 console.log('lookie:', currentPath);//__dirname );
 require('babel-polyfill');
-const config = require('./config');
+
 const { exit, rpc } = require('../lib/cron');
 const fetch = require('../lib/fetch');
 const locker = require('../lib/locker');
@@ -9,7 +9,7 @@ const moment = require('moment');
 // Models.
 const Coin = require('../model/coin');
 
-
+const config = require('./config');
 
 /**
  * Get the coin related information including things
