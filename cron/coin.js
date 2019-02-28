@@ -1,6 +1,5 @@
-
-require('babel-polyfill');
 console.log('lookie:', __dirname );
+require('babel-polyfill');
 const config = require('./config');
 const { exit, rpc } = require('../lib/cron');
 const fetch = require('../lib/fetch');
