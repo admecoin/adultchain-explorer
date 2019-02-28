@@ -9,13 +9,16 @@ const moment = require('moment');
 // Models.
 const Coin = require('../model/coin');
 
-const config = require('/home/explorer/blockex/config.js');
+
 
 /**
  * Get the coin related information including things
  * like price coinmarketcap.com data.
  */
 async function syncCoin() {
+
+  const config = require('config');
+
   const date = moment().utc().startOf('minute').toDate();
   // Setup the coinmarketcap.com api url.
   const url = `${ config.coinMarketCap.api }${ config.coinMarketCap.ticker }`;
