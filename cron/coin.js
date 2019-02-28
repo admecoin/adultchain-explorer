@@ -1,5 +1,5 @@
 let currentPath = process.cwd();
-console.log('lookie:', currentPath);//__dirname );
+console.info('lookie:', currentPath);//__dirname );
 require('babel-polyfill');
 
 const { exit, rpc } = require('../lib/cron');
