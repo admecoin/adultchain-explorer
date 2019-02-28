@@ -1,5 +1,5 @@
 #!/bin/bash
-# https://github.com/Cryptokkie/bulwark-explorer/blob/master/script/install_adultchain.sh
+# https://raw.githubusercontent.com/Cryptokkie/bulwark-explorer/master/script/install_adultchain.sh
 echo -e "${GREEN}Setting up variables...${NC}"
 # Variables
 RED='\033[0;31m'
@@ -66,29 +66,6 @@ prepareDaemonInstall () {
     ufw logging on
     ufw --force enable
     clear
-
-    # Download daemon and cli and install.
-    echo -e "${GREEN}Download adultchain daemon and install...${NC}"
-    mkdir -p /tmp/adultchain
-    cd /tmp/adultchain
-    wget https://github.com/zoldur/AdultChain/releases/download/v1.2.2.0/adultchain.tar.gz
-    tar -xzf adultchain.tar.gz
-    sudo mv adultchain-cli /usr/local/bin
-    sudo mv adultchaind /usr/local/bin
-    cd
-    rm -rf /tmp/adultchain
-    mkdir ~/.adultchain
-
-    # Setup configuration for node.
-    rpcuser=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')
-    rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
-    cat >~/.adultchain/adultchain.conf <<EOL
-    rpcuser=$rpcuser
-    rpcpassword=$rpcpassword
-    daemon=1
-    txindex=1
-EOL
-
 }
 
 installDaemon () {
@@ -118,8 +95,10 @@ After=network.target
 Type=forking
 User=explorer
 WorkingDirectory=$EXPLORERFOLDER
-ExecStart=$EXPLORERFOLDER/bin/adultchaind -datadir=$EXPLORERFOLDER/.adultchain
-ExecStop=$EXPLORERFOLDER/bin/adultchain-cli -datadir=$EXPLORERFOLDER/.adultchain stop
+#ExecStart=$EXPLORERFOLDER/bin/adultchaind -datadir=$EXPLORERFOLDER/.adultchain
+#ExecStop=$EXPLORERFOLDER/bin/adultchain-cli -datadir=$EXPLORERFOLDER/.adultchain stop
+ExecStart=/usr/local/bin/adultchaind -datadir=$EXPLORERFOLDER/.adultchain
+ExecStop=/usr/local/bin/adultchain-cli -datadir=$EXPLORERFOLDER/.adultchain stop
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
