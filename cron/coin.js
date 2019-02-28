@@ -8,6 +8,8 @@ const moment = require('moment');
 // Models.
 const Coin = require('../model/coin');
 
+console.log('lookie:', path.dirname(process.mainModule.filename));
+
 /**
  * Get the coin related information including things
  * like price coinmarketcap.com data.
