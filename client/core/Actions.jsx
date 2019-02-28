@@ -12,6 +12,7 @@ import {
 
 const promises = new Map();
 const worker = new fetchWorker();
+const ticker = `${config.project.ticker}`;
 
 worker.onerror = (err) => {
   console.log(err);
@@ -97,7 +98,7 @@ export const getPeers = () => {
       (peers) => {
         resolve(peers.map((peer) => {
           const parts = peer.ip.split('.');
-          parts[3] = 'XXX';
+          parts[3] = ticker;
           peer.ip = parts.join('.');
           return peer;
         }));

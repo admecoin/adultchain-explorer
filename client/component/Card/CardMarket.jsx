@@ -9,6 +9,8 @@ import CountUp from '../CountUp';
 import GraphLine from '../Graph/GraphLine';
 import Icon from '../Icon';
 
+const ticker = ${config.project.ticker};
+
 export default class CardStatus extends Component {
   static defaultProps = {
     btc: 0.0,
@@ -44,7 +46,7 @@ export default class CardStatus extends Component {
             decimals={ 2 }
             duration={ 1 }
             end={ this.props.usd }
-            prefix={ 'XXX $' }
+            prefix={ ticker + ' $' }
             start={ 0 } />
         </p>
         <p className="card__data-sub">{ this.props.btc } BTC</p>
