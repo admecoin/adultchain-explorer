@@ -1,5 +1,6 @@
 
 require('babel-polyfill');
+console.log('lookie:', path.dirname(process.mainModule.filename));
 const config = require('./config');
 const { exit, rpc } = require('../lib/cron');
 const fetch = require('../lib/fetch');
@@ -8,7 +9,7 @@ const moment = require('moment');
 // Models.
 const Coin = require('../model/coin');
 
-console.log('lookie:', path.dirname(process.mainModule.filename));
+
 
 /**
  * Get the coin related information including things
