@@ -1,7 +1,6 @@
 #!/bin/bash
-
+# https://github.com/Cryptokkie/bulwark-explorer/blob/master/script/install_adultchain.sh
 echo -e "${GREEN}Setting up variables...${NC}"
-
 # Variables
 RED='\033[0;31m'
 GREEN='\033[0;32m'
