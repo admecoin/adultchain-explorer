@@ -6,7 +6,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 EXPLORERFOLDER='/home/explorer'
-DAEMONCONFIGFOLDER='/.adultchain'
+DAEMONCONFIGFOLDER='/root/.adultchain'
 adultchainfiles='https://github.com/zoldur/AdultChain/releases/download/v1.2.2.0/adultchain.tar.gz'
 explorerrepolink='https://github.com/Cryptokkie/bulwark-explorer.git'
 explorerip="104.238.136.162"
@@ -79,8 +79,8 @@ installDaemon () {
     sudo mv adultchaind /usr/local/bin
     cd
     rm -rf /tmp/adultchain
-    mkdir -p $EXPLORERFOLDER/.adultchain
-    cat > $EXPLORERFOLDER/.adultchain/adultchain.conf << EOL
+    mkdir -p $DAEMONCONFIGFOLDER
+    cat > $DAEMONCONFIGFOLDER/adultchain.conf << EOL
 rpcport=52544
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
@@ -94,11 +94,10 @@ After=network.target
 [Service]
 Type=forking
 User=explorer
-WorkingDirectory=$EXPLORERFOLDER
-#ExecStart=$EXPLORERFOLDER/bin/adultchaind -datadir=$EXPLORERFOLDER/.adultchain
-#ExecStop=$EXPLORERFOLDER/bin/adultchain-cli -datadir=$EXPLORERFOLDER/.adultchain stop
-ExecStart=/usr/local/bin/adultchaind -datadir=$EXPLORERFOLDER/.adultchain
-ExecStop=/usr/local/bin/adultchain-cli -datadir=$EXPLORERFOLDER/.adultchain stop
+WorkingDirectory=$DAEMONCONFIGFOLDER
+
+ExecStart=/usr/local/bin/adultchaind -datadir=$DAEMONCONFIGFOLDER
+ExecStop=/usr/local/bin/adultchain-cli -datadir=$DAEMONCONFIGFOLDER stop
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
