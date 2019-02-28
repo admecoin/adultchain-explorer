@@ -15,7 +15,7 @@ import {
 const promises = new Map();
 const worker = new fetchWorker();
 
-import config from 'config';
+import config from '../../config';
 const ticker = `${config.project.ticker}`;
 
 worker.onerror = (err) => {

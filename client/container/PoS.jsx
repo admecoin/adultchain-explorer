@@ -9,7 +9,7 @@ import React from 'react';
 import HorizontalRule from '../component/HorizontalRule';
 import Select from '../component/Select';
 
-import config from 'config';
+import config from '../../config.js';
 const ticker = `${config.project.ticker}`;
 
 

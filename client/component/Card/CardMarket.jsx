@@ -9,7 +9,7 @@ import CountUp from '../CountUp';
 import GraphLine from '../Graph/GraphLine';
 import Icon from '../Icon';
 
-import config from 'config';
+import config from '../../../config.js';
 const ticker = `${config.project.ticker}`;
 
 

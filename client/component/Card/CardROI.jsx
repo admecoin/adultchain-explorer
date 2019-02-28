@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Card from './Card';
-import config from 'config';
+import config from '../../../config.js';
 
 const CardROI = ({ coin, supply }) => {
   const mncoins = blockchain.mncoins;

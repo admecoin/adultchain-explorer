@@ -7,7 +7,7 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import config from 'config';
+import config from '../../../config.js';
 const ticker = `${config.project.ticker}`;
 
 
