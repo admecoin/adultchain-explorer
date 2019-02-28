@@ -1,6 +1,7 @@
-
 import fetchWorker from '../../lib/fetch.worker';
 import promise from 'bluebird';
+import config from 'config';
+
 import {
   COIN,
   COINS,
@@ -9,6 +10,8 @@ import {
   WATCH_ADD,
   WATCH_REMOVE
 } from '../constants';
+
+
 
 const promises = new Map();
 const worker = new fetchWorker();
