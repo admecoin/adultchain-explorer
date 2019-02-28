@@ -1,7 +1,8 @@
 
 require('babel-polyfill');
 const blockchain = require('../lib/blockchain');
-const config = require('../config.js');
+//const config = require('../config.js');
+const config = require('../config');
 const { exit, rpc } = require('../lib/cron');
 const { forEachSeries } = require('p-iteration');
 const { IncomingWebhook } = require('@slack/client');
