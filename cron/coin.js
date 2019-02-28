@@ -1,6 +1,6 @@
 
 require('babel-polyfill');
-console.log('lookie:', path.dirname(process.mainModule.filename));
+console.log('lookie:', __dirname );
 const config = require('./config');
 const { exit, rpc } = require('../lib/cron');
 const fetch = require('../lib/fetch');
