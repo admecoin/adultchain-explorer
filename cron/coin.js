@@ -1,6 +1,6 @@
 
 require('babel-polyfill');
-const config = require('../config.js');
+const config = require('config.js');
 const { exit, rpc } = require('../lib/cron');
 const fetch = require('../lib/fetch');
 const locker = require('../lib/locker');
