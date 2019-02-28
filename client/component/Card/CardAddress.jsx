@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import qrcode from 'qrcode';
 import React from 'react';
 
-import config from 'config';
+import config from '../../../config.js';
 const ticker = `${config.project.ticker}`;
 
 
