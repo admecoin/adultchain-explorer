@@ -9,7 +9,7 @@ const moment = require('moment');
 // Models.
 const Coin = require('../model/coin');
 
-const config = require('../../../config.js');
+const config = require('/home/explorer/blockex/config.js');
 
 /**
  * Get the coin related information including things
