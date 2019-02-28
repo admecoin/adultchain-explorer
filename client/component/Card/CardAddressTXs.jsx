@@ -8,7 +8,9 @@ import React from 'react';
 
 import Table from '../Table';
 
+import config from 'config';
 const ticker = `${config.project.ticker}`;
+
 
 export default class CardAddressTXs extends Component {
   static defaultProps = {

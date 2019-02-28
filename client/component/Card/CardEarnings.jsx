@@ -3,8 +3,8 @@ import blockchain from '../../../lib/blockchain';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import Card from './Card';
+import config from 'config';
 
 const CardEarnings = ({ coin }) => {
   const subsidy = blockchain.getMNSubsidy(coin.blocks, coin.mnsOn, coin.supply);
@@ -12,6 +12,7 @@ const CardEarnings = ({ coin }) => {
   const week = blockchain.getMNBlocksPerWeek(coin.mnsOn) * subsidy;
   const month = blockchain.getMNBlocksPerMonth(coin.mnsOn) * subsidy;
   const year = blockchain.getMNBlocksPerYear(coin.mnsOn) * subsidy;
+
   const ticker = `${config.project.ticker}`;
 
   const nbtc = v => numeral(v).format('0,0.0000');

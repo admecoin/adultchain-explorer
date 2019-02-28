@@ -1,6 +1,5 @@
 import fetchWorker from '../../lib/fetch.worker';
 import promise from 'bluebird';
-import config from 'config';
 
 import {
   COIN,
@@ -15,6 +14,8 @@ import {
 
 const promises = new Map();
 const worker = new fetchWorker();
+
+import config from 'config';
 const ticker = `${config.project.ticker}`;
 
 worker.onerror = (err) => {

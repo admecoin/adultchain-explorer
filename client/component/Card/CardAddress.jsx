@@ -6,7 +6,9 @@ import PropTypes from 'prop-types';
 import qrcode from 'qrcode';
 import React from 'react';
 
+import config from 'config';
 const ticker = `${config.project.ticker}`;
+
 
 export default class CardAddress extends Component {
   static defaultProps = {

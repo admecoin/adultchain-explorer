@@ -9,7 +9,9 @@ import CountUp from '../CountUp';
 import GraphLine from '../Graph/GraphLine';
 import Icon from '../Icon';
 
-const ticker = ${config.project.ticker};
+import config from 'config';
+const ticker = `${config.project.ticker}`;
+
 
 export default class CardStatus extends Component {
   static defaultProps = {

@@ -9,7 +9,9 @@ import React from 'react';
 import HorizontalRule from '../component/HorizontalRule';
 import Select from '../component/Select';
 
+import config from 'config';
 const ticker = `${config.project.ticker}`;
+
 
 class PoS extends Component {
   static propTypes = {
