@@ -1,5 +1,4 @@
-//let currentPath = process.cwd();
-//console.error('see this:', currentPath);//__dirname );
+
 require('babel-polyfill');
 
 const { exit, rpc } = require('../lib/cron');
@@ -9,19 +8,18 @@ const moment = require('moment');
 // Models.
 const Coin = require('../model/coin');
 
-
-
 /**
  * Get the coin related information including things
  * like price coinmarketcap.com data.
  */
 async function syncCoin() {
 
-
+let currentPath = process.cwd();
+console.error('see this:', currentPath);//__dirname );
 
   const date = moment().utc().startOf('minute').toDate();
   // Setup the coinmarketcap.com api url.
-  const config = require('../config');
+  const config = require('./config');
   const url = `${ config.coinMarketCap.api }${ config.coinMarketCap.ticker }`;
 
   const info = await rpc.call('getinfo');
