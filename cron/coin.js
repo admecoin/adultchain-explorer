@@ -18,7 +18,7 @@ async function syncCoin() {
 
     const date = moment().utc().startOf('minute').toDate();
     // Setup the coinmarketcap.com api url.
-    const config = require('./config');
+    const config = require('../config');
     const url = `${config.coinMarketCap.api}${config.coinMarketCap.ticker}`;
 
     const info = await rpc.call('getinfo');
