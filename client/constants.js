@@ -21,6 +21,5 @@ export default {
   TXS,
   WATCH_ADD,
   WATCH_REMOVE,
-
   API_BASE
 };

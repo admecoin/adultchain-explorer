@@ -8,6 +8,8 @@ import React from 'react';
 
 import Table from '../Table';
 
+const ticker = `${config.project.ticker}`;
+
 export default class CardTXOut extends Component {
   static defaultProps = {
     txs: []
@@ -38,7 +40,7 @@ export default class CardTXOut extends Component {
           ),
           value: (
             <span className="badge badge-success">
-              { numeral(tx.value).format('0,0.0000') } BWK
+              { numeral(tx.value).format('0,0.0000') } {ticker}
             </span>
           )
         })) } />

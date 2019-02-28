@@ -3,6 +3,11 @@
  * Global configuration object.
  */
 const config = {
+  'project': {
+    'name': 'Bulwark',
+    'tagline': 'Masternodes & hardware',
+    'ticker': 'bwk'
+  },
   'api': {
     'host': 'https://explorer.bulwarkcrypto.com',
     'port': '443',

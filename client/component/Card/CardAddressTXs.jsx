@@ -8,6 +8,8 @@ import React from 'react';
 
 import Table from '../Table';
 
+const ticker = `${config.project.ticker}`;
+
 export default class CardAddressTXs extends Component {
   static defaultProps = {
     address: '',
@@ -56,7 +58,7 @@ export default class CardAddressTXs extends Component {
             amount: (
               <span
                 className={ `badge badge-${ isSpent ? 'danger' : 'success' }` }>
-                { isSpent ? '-' : ''}{ numeral(amount).format('0,0.0000') } BWK
+                { isSpent ? '-' : ''}{ numeral(amount).format('0,0.0000') } {ticker}
               </span>
             ),
             createdAt: dateFormat(tx.createdAt),
