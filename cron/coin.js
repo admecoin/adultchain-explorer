@@ -1,5 +1,5 @@
-let currentPath = process.cwd();
-console.error('see this:', currentPath);//__dirname );
+//let currentPath = process.cwd();
+//console.error('see this:', currentPath);//__dirname );
 require('babel-polyfill');
 
 const { exit, rpc } = require('../lib/cron');
@@ -9,7 +9,7 @@ const moment = require('moment');
 // Models.
 const Coin = require('../model/coin');
 
-const config = require('./config');
+const config = require('config.js');
 
 /**
  * Get the coin related information including things
