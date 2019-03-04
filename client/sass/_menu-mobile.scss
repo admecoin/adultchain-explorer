@@ -4,7 +4,7 @@
 	display: flex;
 	flex-direction: column;
 
-	box-shadow: #7d7d7d 0px 0px 16px;
+	box-shadow: #7d7d7d 0 0 16px;
 	color: $white;
 	flex: 1;
 	font-weight: lighter;
@@ -52,7 +52,8 @@
 		width: 95%;
 
 		&:hover {
-			color: $blue;
+			/*color: $blue;*/
+			color: $medium-pink;
 			text-decoration: none;
 		}
 

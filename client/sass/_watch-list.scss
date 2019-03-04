@@ -10,7 +10,8 @@
 
 	&__item {
 		align-items: center;
-		background-color: $blue;
+		/*background-color: $blue;*/
+		background-color: $medium-pink;
   		border-radius: 15px;
 		color: $white;
 		font-size: .75em;
@@ -26,7 +27,8 @@
 	}
 
 	&__item:nth-child(odd) {
-		background-color: $blue;
+		/*background-color: $blue;*/
+		background-color: $medium-pink;
 	}
 
 	&__item-close {
@@ -57,8 +59,9 @@
 
 		text-rendering: auto;
 		text-shadow: none;
-		-webkit-font-smoothing: auto;
-		-webkit-text-stroke: 0;
+		/*-webkit-font-smoothing: auto;*/
+		-webkit-font-smoothing: inherit;
+		-webkit-text-stroke-width: 0;
 	}
 
 }

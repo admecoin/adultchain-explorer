@@ -39,7 +39,8 @@
 			color: $gray;
 
 			&:hover {
-				color: $blue;
+				/*color: $blue;*/
+				color: $medium-pink;
 			}
 		}
 	}
@@ -51,13 +52,15 @@
 			color: $gray-dark;
 
 			&:hover {
-				color: $blue;
+				/*color: $blue;*/
+				color: $medium-pink;
 			}
 		}
 	}
 
 	th {
-		background-color: $blue;
+		/*background-color: $blue;*/
+		background-color: $medium-pink;
 		color: $white;
 		font-size: 16px;
 		min-width: 100px;
