@@ -61,6 +61,7 @@ prepareDaemonInstall () {
     echo -e "${GREEN}Setting up firewall ports...${NC}"
     ufw allow 22/tcp
     ufw allow 3000/tcp #explorer port
+    # naahhh.... do the reverse proxy nginx thing so not: ufw allow 80/tcp // explorer port for production
     ufw limit 22/tcp
     ufw allow 6969/tcp #adultchain port
     ufw logging on
