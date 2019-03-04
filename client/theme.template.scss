@@ -1,9 +1,3 @@
-// https://www.colorhexa.com/ffd1dc
-
-/* Variables */
-$dark-pink: #ff0d47;
-
-
 /* Variables */
 $black: #151515;
 $blue: rgba(41, 77, 234, 1);
@@ -64,8 +58,7 @@ $pagination-hover-color: $blue;
 $pagination-hover-bg: $white;
 $pagination-hover-border-color: $blue;
 
-// $pagination-active-color: $black;
-$pagination-active-color: $dark-pink
+$pagination-active-color: $black;
 $pagination-active-bg: $white;
 $pagination-active-border-color: $gray-light;
 
@@ -147,8 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .badge {
   border-radius: 2.5px;
-  /*color: $black;*/
-  color: $dark-pink;
+  color: $black;
   font-family: $fontSmall;
   font-size: 0.85em;
   font-weight: normal;
