@@ -15,11 +15,11 @@ const CardEarnings = ({ coin }) => {
 
   const ticker = `${config.project.ticker}`;
 
-  const nbtc = v => numeral(v).format('0,0.0000');
+  const nbtc = v => numeral(v).format('0,0.0000 0000');
   const nusd = v => numeral(v).format('$ 0,0.00');
 
   return (
-    <Card title="Estimated Earnings ({ ticker } / BTC / USD)">
+    <Card title="Estimated Earnings ( XXX / BTC / USD)">
       <div className="row">
         <div className="col-sm-12 col-md-3">
           DAILY
