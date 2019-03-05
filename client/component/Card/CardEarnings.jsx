@@ -15,6 +15,7 @@ const CardEarnings = ({ coin }) => {
 
   const ticker = `${config.project.ticker}`;
 
+  const ncoin = v => numeral(v).format('0,0');
   const nbtc = v => numeral(v).format('0,0.00000000');
   const nusd = v => numeral(v).format('$ 0,0.00');
 
@@ -25,7 +26,7 @@ const CardEarnings = ({ coin }) => {
           DAILY
         </div>
         <div className="col-sm-12 col-md-9">
-          { nbtc(day) } { ticker } / { nbtc(day * coin.btc) } BTC / { nusd(day * coin.usd) } USD
+          { ncoin(day) } { ticker } / { nbtc(day * coin.btc) } BTC / { nusd(day * coin.usd) } USD
         </div>
       </div>
       <div className="row">
@@ -33,7 +34,7 @@ const CardEarnings = ({ coin }) => {
           WEEKLY
         </div>
         <div className="col-sm-12 col-md-9">
-          { nbtc(week) } { ticker } / { nbtc(week * coin.btc) } BTC / { nusd(week * coin.usd) } USD
+          { ncoin(week) } { ticker } / { nbtc(week * coin.btc) } BTC / { nusd(week * coin.usd) } USD
         </div>
       </div>
       <div className="row">
@@ -41,7 +42,7 @@ const CardEarnings = ({ coin }) => {
           MONTHLY
         </div>
         <div className="col-sm-12 col-md-9">
-          { nbtc(month) } { ticker } / { nbtc(month * coin.btc) } BTC / { nusd(month * coin.usd) } USD
+          { ncoin(month) } { ticker } / { nbtc(month * coin.btc) } BTC / { nusd(month * coin.usd) } USD
         </div>
       </div>
       <div className="row">
@@ -49,7 +50,7 @@ const CardEarnings = ({ coin }) => {
           YEARLY
         </div>
         <div className="col-sm-12 col-md-9">
-          { nbtc(year) } { ticker } / { nbtc(year * coin.btc) } BTC / { nusd(year * coin.usd) } USD
+          { ncoin(year) } { ticker } / { nbtc(year * coin.btc) } BTC / { nusd(year * coin.usd) } USD
         </div>
       </div>
       <div className="row">
