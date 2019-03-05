@@ -15,7 +15,7 @@ const CardEarnings = ({ coin }) => {
 
   const ticker = `${config.project.ticker}`;
 
-  const nbtc = v => numeral(v).format('0,0.0000 0000');
+  const nbtc = v => numeral(v).format('0,0.00000000');
   const nusd = v => numeral(v).format('$ 0,0.00');
 
   return (
