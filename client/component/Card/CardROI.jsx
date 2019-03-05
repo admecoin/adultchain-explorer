@@ -21,12 +21,13 @@ const CardROI = ({ coin, supply }) => {
           { coin.mnsOn } / { mns }
         </div>
         <div className="h5">
-          Active/Total Masternodes
+          Active / Total Masternodes
         </div>
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(roi).format('0,0.0000') }%
+          { numeral(roi).format('0,0') }%
+          {/*{ numeral(roi).format('0,0.0000') }%*/}
         </div>
         <div className="h5">
           Estimated ROI
@@ -58,7 +59,7 @@ const CardROI = ({ coin, supply }) => {
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(coin.cap).format('$0,0.00') }
+          { numeral(coin.cap).format('$ 0,0.00') }
         </div>
         <div className="h5">
           Market Cap USD
