@@ -27,7 +27,6 @@ const CardROI = ({ coin, supply }) => {
       <div className="mb-3">
         <div className="h3">
           { numeral(roi).format('0,0') }%
-          {/*{ numeral(roi).format('0,0.0000') }%*/}
         </div>
         <div className="h5">
           Estimated ROI
@@ -35,7 +34,7 @@ const CardROI = ({ coin, supply }) => {
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(supply ? supply.t : 0.0).format('0,0.0000') } {ticker}
+          { numeral(supply ? supply.t : 0.0).format('0,0') } {ticker}
         </div>
         <div className="h5">
           Coin Supply (Total)
@@ -43,7 +42,7 @@ const CardROI = ({ coin, supply }) => {
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(supply ? supply.c - (mns * mncoins) : 0.0).format('0,0.0000') } {ticker}
+          { numeral(supply ? supply.c - (mns * mncoins) : 0.0).format('0,0') } {ticker}
         </div>
         <div className="h5">
           Coin Supply (Circulating)
@@ -59,7 +58,7 @@ const CardROI = ({ coin, supply }) => {
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(coin.cap).format('$ 0,0.00') }
+          { numeral(coin.cap).format('$ 0,0') }
         </div>
         <div className="h5">
           Market Cap USD
@@ -67,7 +66,7 @@ const CardROI = ({ coin, supply }) => {
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(mns * mncoins).format('0,0.0000') } {ticker}
+          { numeral(mns * mncoins).format('0,0') } {ticker}
         </div>
         <div className="h5">
           Coins Locked
@@ -75,7 +74,7 @@ const CardROI = ({ coin, supply }) => {
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(mncoins * coin.btc).format('0,0.0000') } BTC / { numeral(mncoins * coin.usd).format('$0,0.00') }
+          { numeral(mncoins * coin.btc).format('0,0.0000') } BTC / { numeral(mncoins * coin.usd).format('$ 0,0.00') }
         </div>
         <div className="h5">
           Masternode Worth
