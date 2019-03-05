@@ -1,3 +1,6 @@
+# The build directory
+public/
+
 # Logs
 logs
 *.log
