@@ -58,9 +58,6 @@ class Footer extends Component {
                             <a href="https://discord.gg/a7vhegP" target="_blank">
                                 <Icon name="discord" className="fab footer__social-media-icon"/>
                             </a>
-{/*                            <a href="https://t.me/bulwarkcrypto" target="_blank">
-                                <Icon name="telegram" className="fab footer__social-media-icon"/>
-                            </a>*/}
                             <a href="https://www.reddit.com/r/adultchain/" target="_blank">
                                 <Icon name="reddit" className="fab footer__social-media-icon"/>
                             </a>
@@ -70,9 +67,6 @@ class Footer extends Component {
                             <a href="https://twitter.com/adultchainxxx" target="_blank">
                                 <Icon name="twitter" className="fab footer__social-media-icon"/>
                             </a>
-{/*                            <a href="http://facebook.com/bulwark.coin.IO/" target="_blank">
-                                <Icon name="facebook" className="fab footer__social-media-icon"/>
-                            </a>*/}
                         </div>
                     </div>
                 </div>
