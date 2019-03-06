@@ -8,7 +8,7 @@ import React from 'react';
 
 export default class GraphLineFull extends Component {
   static defaultProps = {
-    color: 'rgba(25, 145, 235, 1)',
+    color: '#ff52ff', /*'rgb(25, 145, 235)','rgba(25, 145, 235, 1)',*/
     rgb: {r: 25, g: 145, b: 1},
     data: [],
     labels: []
@@ -16,6 +16,7 @@ export default class GraphLineFull extends Component {
 
   static propTypes = {
     color: PropTypes.string.isRequired,
+    rgb: PropTypes.object.isRequired,
     data: PropTypes.array.isRequired,
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     labels: PropTypes.array.isRequired,
@@ -27,10 +28,8 @@ export default class GraphLineFull extends Component {
 
   constructor(props) {
     super(props);
-    this.rgb = this.hexToRgb(this.color);
     this.chart = null;
     this.id = this.randomString();
-
   };
 
   hexToRgb(hex) {
@@ -76,6 +75,11 @@ export default class GraphLineFull extends Component {
 
 
   getConfig = () => {
+
+    this.props.rgb.r = this.hexToRgb(this.props.color).r;
+    this.props.rgb.g = this.hexToRgb(this.props.color).g;
+    this.props.rgb.b = this.hexToRgb(this.props.color).b;
+
     const data = this.props.data.map(d => numeral(d).value());
 
     let max = Math.max.apply(Math, data);
@@ -89,8 +93,8 @@ export default class GraphLineFull extends Component {
     let gradientFill;
     if (ctx) {
       gradientFill = ctx.createLinearGradient(canvas.width/2, 0, canvas.width/2, canvas.height*2);
-      gradientFill.addColorStop(0, "rgba(" + this.rgb.r + ", " + this.rgb.g + ", " + this.rgb.b + ", 0.6)");
-      gradientFill.addColorStop(1, "rgba(" + this.rgb.r + ", " + this.rgb.g + ", " + this.rgb.b + " 0.0)");
+      gradientFill.addColorStop(0, "rgba(" + this.props.rgb.r + ", " + this.props.rgb.g + ", " + this.props.rgb.b + ", 0.6)");
+      gradientFill.addColorStop(1, "rgba(" + this.props.rgb.r + ", " + this.props.rgb.g + ", " + this.props.rgb.b + ", 0.0)");
     } else {
       gradientFill = false;
     }

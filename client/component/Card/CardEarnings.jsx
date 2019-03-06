@@ -20,36 +20,36 @@ const CardEarnings = ({coin}) => {
 
     return (
         <Card title="Estimated Earnings">
-            <table className="table">
-                <thead>
+            <table className="table_earnings">
+                <thead >
                 <tr>
-                    <th scope="col"></th>
-                    <th scope="col">{ticker}</th>
-                    <th scope="col">BTC</th>
-                    <th scope="col">USD</th>
+                    <td scope="col">/</td>
+                    <td scope="col">{ticker}</td>
+                    <td scope="col">BTC</td>
+                    <td scope="col">USD</td>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">DAILY</th>
+                    <td scope="row">DAY</td>
                     <td>{ncoin(day)} </td>
                     <td>{nbtc(day * coin.btc)}</td>
                     <td>{nusd(day * coin.usd)}</td>
                 </tr>
                 <tr>
-                    <th scope="row">WEEKLY</th>
+                    <td scope="row">WEEK</td>
                     <td>{ncoin(week)} </td>
                     <td>{nbtc(week * coin.btc)}</td>
                     <td>{nusd(week * coin.usd)}</td>
                 </tr>
                 <tr>
-                    <th scope="row">MONTHLY</th>
+                    <td scope="row">MONTH</td>
                     <td>{ncoin(month)} </td>
                     <td>{nbtc(month * coin.btc)}</td>
                     <td>{nusd(month * coin.usd)}</td>
                 </tr>
                 <tr>
-                    <th scope="row">YEARLY</th>
+                    <td scope="row">YEAR</td>
                     <td>{ncoin(year)} </td>
                     <td>{nbtc(year * coin.btc)}</td>
                     <td>{nusd(year * coin.usd)}</td>
