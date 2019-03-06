@@ -189,25 +189,25 @@ class PoS extends Component {
             <b>Block Subsidy:</b>
           </div>
           <div className="col-sm-8">
-            { numeral(vX.subsidy).format('0,0.0000') } {ticker}
+            { numeral(vX.subsidy).format('0,0.00') } {ticker}
           </div>
           <div className="col-sm-4">
             <b>PoS:</b>
           </div>
           <div className="col-sm-8">
-            { numeral(vX.posSubsidy).format('0,0.0000') } {ticker}
+            { numeral(vX.posSubsidy).format('0,0.00') } {ticker}
           </div>
           <div className="col-sm-4">
             <b>Masternode:</b>
           </div>
           <div className="col-sm-8">
-            { numeral(vX.mnSubsidy).format('0,0.0000') } {ticker}
+            { numeral(vX.mnSubsidy).format('0,0.00') } {ticker}
           </div>
           <div className="col-sm-4">
             <b>Calculation Amount:</b>
           </div>
           <div className="col-sm-8">
-            { numeral(this.state.amount).format('0,0.0000') } {ticker}
+            { numeral(this.state.amount).format('0,0.00') } {ticker}
           </div>
         </div>
         <hr />
@@ -243,7 +243,7 @@ class PoS extends Component {
             Masternode Amount ({ticker}):
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vX.mn).format('0,0.0000') }
+            { numeral(vX.mn).format('0,0.00') }
           </div>
           <div className="col-sm-12 col-md-2"></div>
           <div className="col-sm-12 col-md-2"></div>
@@ -265,16 +265,16 @@ class PoS extends Component {
             Masternode Reward ({ticker}):
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vX.mnSubsidy * mns).format('0,0.0000') }
+            { numeral(vX.mnSubsidy * mns).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vDay.mnSubsidy * mns).format('0,0.0000') }
+            { numeral(vDay.mnSubsidy * mns).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vWeek.mnSubsidy * mns).format('0,0.0000') }
+            { numeral(vWeek.mnSubsidy * mns).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vMonth.mnSubsidy * mns).format('0,0.0000') }
+            { numeral(vMonth.mnSubsidy * mns).format('0,0') }
           </div>
         </div>
         <br />
@@ -283,7 +283,7 @@ class PoS extends Component {
             PoS Amount ({ticker}):
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vX.pos).format('0,0.0000') }
+            { numeral(vX.pos).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2"></div>
           <div className="col-sm-12 col-md-2"></div>
@@ -305,16 +305,16 @@ class PoS extends Component {
             PoS Reward ({ticker}):
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vX.posSubsidy).format('0,0.0000') }
+            { numeral(vX.posSubsidy).format('0,0.00') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vDay.posSubsidy).format('0,0.0000') }
+            { numeral(vDay.posSubsidy).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vWeek.posSubsidy).format('0,0.0000') }
+            { numeral(vWeek.posSubsidy).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vMonth.posSubsidy).format('0,0.0000') }
+            { numeral(vMonth.posSubsidy).format('0,0') }
           </div>
         </div>
         <hr />
@@ -324,16 +324,16 @@ class PoS extends Component {
             Total Amount ({ticker}):
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vX.mnSubsidy * mns + vX.posSubsidy).format('0,0.0000') }
+            { numeral(vX.mnSubsidy * mns + vX.posSubsidy).format('0,0.00') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vDay.mnSubsidy * mns + vDay.posSubsidy).format('0,0.0000') }
+            { numeral(vDay.mnSubsidy * mns + vDay.posSubsidy).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vWeek.mnSubsidy * mns + vWeek.posSubsidy).format('0,0.0000') }
+            { numeral(vWeek.mnSubsidy * mns + vWeek.posSubsidy).format('0,0') }
           </div>
           <div className="col-sm-12 col-md-2">
-            { numeral(vMonth.mnSubsidy * mns + vMonth.posSubsidy).format('0,0.0000') }
+            { numeral(vMonth.mnSubsidy * mns + vMonth.posSubsidy).format('0,0') }
           </div>
         </div>
         <div className="row">
