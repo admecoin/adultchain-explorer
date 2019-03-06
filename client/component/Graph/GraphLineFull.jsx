@@ -9,6 +9,7 @@ import React from 'react';
 export default class GraphLineFull extends Component {
   static defaultProps = {
     color: 'rgba(25, 145, 235, 1)',
+    rgb: {r: 25, g: 145, b: 1},
     data: [],
     labels: []
   };
@@ -26,9 +27,19 @@ export default class GraphLineFull extends Component {
 
   constructor(props) {
     super(props);
-
+    this.rgb = this.hexToRgb(this.color);
     this.chart = null;
     this.id = this.randomString();
+
+  };
+
+  hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
   };
 
   componentDidMount() {
@@ -63,6 +74,7 @@ export default class GraphLineFull extends Component {
     this.chart.destroy();
   };
 
+
   getConfig = () => {
     const data = this.props.data.map(d => numeral(d).value());
 
@@ -77,8 +89,8 @@ export default class GraphLineFull extends Component {
     let gradientFill;
     if (ctx) {
       gradientFill = ctx.createLinearGradient(canvas.width/2, 0, canvas.width/2, canvas.height*2);
-      gradientFill.addColorStop(0, "rgba(25, 145, 235, 0.6)");
-      gradientFill.addColorStop(1, "rgba(25, 145, 235, 0.0)");
+      gradientFill.addColorStop(0, "rgba(" + this.rgb.r + ", " + this.rgb.g + ", " + this.rgb.b + ", 0.6)");
+      gradientFill.addColorStop(1, "rgba(" + this.rgb.r + ", " + this.rgb.g + ", " + this.rgb.b + " 0.0)");
     } else {
       gradientFill = false;
     }

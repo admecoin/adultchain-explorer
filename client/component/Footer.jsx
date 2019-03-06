@@ -26,7 +26,7 @@ class Footer extends Component {
                     <img className="footer__logo" src="/img/footerlogo.png"/>
                     <span className="footer__legal">
                         <div>Copyright &copy; 2019 <a href="https://adultchain.me/">Adultchain</a></div>
-                        <div>Site design / Logo &copy; 2018 <a href="https://bulwarkcrypto.com/">Bulwark Cryptocurrency</a></div>
+                        <div>Forked from <a href="https://bulwarkcrypto.com/">Bulwark Cryptocurrency</a> <a href="https://github.com/bulwark-crypto/bulwark-explorer">explorer</a>.</div>
                     </span>
                 </div>
                 <div className="footer__block">
@@ -53,7 +53,7 @@ class Footer extends Component {
                         <div className="footer__social-title">Social Media</div>
                         <div>
                             <a href="https://bitcointalk.org/index.php?topic=3296722.0" target="_blank">
-                                <Icon name="bitcoin" className="fab footer__social-media-icon"/>
+                                <Icon name="bitcoin" className="fab footer__social-media-icon" />
                             </a>
                             <a href="https://discord.gg/a7vhegP" target="_blank">
                                 <Icon name="discord" className="fab footer__social-media-icon"/>
