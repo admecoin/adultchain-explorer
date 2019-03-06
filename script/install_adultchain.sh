@@ -1,15 +1,31 @@
 #!/bin/bash
+# Bulwark install script
+# Heavily tweaked to work with AdultChain by Cryptokkie
 # https://raw.githubusercontent.com/Cryptokkie/bulwark-explorer/master/script/install_adultchain.sh
 echo -e "${GREEN}Setting up variables...${NC}"
+
 # Variables
+
+# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
+
+# Paths
 EXPLORERFOLDER='/home/explorer'
 DAEMONCONFIGFOLDER='/root/.adultchain'
 adultchainfiles='https://github.com/zoldur/AdultChain/releases/download/v1.2.2.0/adultchain.tar.gz'
 explorerrepolink='https://github.com/Cryptokkie/bulwark-explorer.git'
+
 explorerip="104.238.136.162"
+explorerurl="explorer.adultchain.me"
+
+projectname='AdultChain'
+projecttagline='Adult entertainment on the blockchain'
+cointicker='ticker'
+cointickercmc='AdultChain'
+
+# Credentials
 rpcuser=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')
 rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 
@@ -61,7 +77,7 @@ prepareDaemonInstall () {
     echo -e "${GREEN}Setting up firewall ports...${NC}"
     ufw allow 22/tcp
     ufw allow 3000/tcp #explorer port
-    # naahhh.... do the reverse proxy nginx thing so not: ufw allow 80/tcp // explorer port for production
+    # naahhh.... do the reverse proxy nginx thing (so not simply try opening port 80: ufw allow 80/tcp // explorer port for production)
     ufw limit 22/tcp
     ufw allow 6969/tcp #adultchain port
     ufw logging on
@@ -115,7 +131,7 @@ EOL
 
 
 installNodeAndYarn () {
-    echo "Installing nodejs and yarn..."
+    echo -e "${GREEN}Installing nodejs and yarn...${NC}"
     sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
     sudo apt-get install -y nodejs npm
     sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -129,7 +145,7 @@ installNodeAndYarn () {
 }
 
 installNginx () {
-    echo "Installing nginx..."
+    echo -e "${GREEN}Installing nginx...${NC}"
     sudo apt-get install -y nginx
     sudo rm -f /etc/nginx/sites-available/default
     sudo cat > /etc/nginx/sites-available/default << EOL
@@ -189,7 +205,7 @@ EOL
 }
 
 installMongo () {
-    echo "Installing mongodb..."
+    echo -e "${GREEN}Installing mongodb...${NC}"
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
     sudo echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
     sudo apt-get update -y
@@ -198,86 +214,61 @@ installMongo () {
     sudo systemctl start mongod
     sudo systemctl enable mongod
     mongo blockex --eval "db.createUser( { user: \"$rpcuser\", pwd: \"$rpcpassword\", roles: [ \"readWrite\" ] } )"
-
-    clear
-}
-
-installBulwark () {
-    echo "Installing Bulwark..."
-    mkdir -p /tmp/bulwark
-    cd /tmp/bulwark
-    curl -Lo bulwark.tar.gz $explorerrepolink
-    tar -xzf bulwark.tar.gz
-    sudo mv ./bin/* /usr/local/bin
-    cd
-    rm -rf /tmp/bulwark
-    mkdir -p $EXPLORERFOLDER/.bulwark
-    cat > $EXPLORERFOLDER/.bulwark/bulwark.conf << EOL
-rpcport=52544
-rpcuser=$rpcuser
-rpcpassword=$rpcpassword
-daemon=1
-txindex=1
-EOL
-    sudo cat > /etc/systemd/system/bulwarkd.service << EOL
-[Unit]
-Description=bulwarkd
-After=network.target
-[Service]
-Type=forking
-User=explorer
-WorkingDirectory=$EXPLORERFOLDER
-ExecStart=$EXPLORERFOLDER/bin/bulwarkd -datadir=$EXPLORERFOLDER/.bulwark
-ExecStop=$EXPLORERFOLDER/bin/bulwark-cli -datadir=$EXPLORERFOLDER/.bulwark stop
-Restart=on-abort
-[Install]
-WantedBy=multi-user.target
-EOL
-    sudo systemctl start bulwarkd
-    sudo systemctl enable bulwarkd
-    echo "Sleeping for 1 hour while node syncs blockchain..."
-    sleep 1h
+    echo -e "${GREEN}Mongodb installed and user created...${NC}"
     clear
 }
 
 installBlockEx () {
-    echo "Installing BlockEx..."
+    echo -e "${GREEN}Installing BlockEx...${NC}"
     git clone $explorerrepolink $EXPLORERFOLDER/blockex
     cd $EXPLORERFOLDER/blockex
     yarn install
+    # new one:
     cat > $EXPLORERFOLDER/blockex/config.js << EOL
+/**
+ * Global configuration object.
+ */
 const config = {
-  'api': {
-    'host': 'http://$explorerip',
-    'port': '3000',
-    'prefix': '/api',
-    'timeout': '180s'
-  },
-  'coinMarketCap': {
-    'api': 'http://api.coinmarketcap.com/v1/ticker/',
-    'ticker': 'xxx'
-  },
-  'db': {
-    'host': '127.0.0.1',
-    'port': '27017',
-    'name': 'blockex',
-    'user': '$rpcuser',
-    'pass': '$rpcpassword'
-  },
-  'freegeoip': {
-    'api': 'https://extreme-ip-lookup.com/json/'
-  },
-  'rpc': {
-    'host': '127.0.0.1',
-    'port': '52544',
-    'user': '$rpcuser',
-    'pass': '$rpcpassword',
-    'timeout': 12000, // 12 seconds
-  }
+    'project': {
+        'name': '$projectname',
+        'tagline': '$projecttagline',
+        'ticker': '$cointicker'
+    },
+    'api': {
+        'host': 'https://$explorerurl',
+        'port': '443',
+        'prefix': '/api',
+        'timeout': '180s'
+    },
+    'coinMarketCap': {
+        'api': 'https://api.coinmarketcap.com/v1/ticker/',
+        'ticker': '$cointickercmc'
+    },
+    'db': {
+        'host': '127.0.0.1',
+        'port': '27017',
+        'name': 'blockex',
+        'user': '$rpcuser',
+        'pass': '$rpcpassword'
+    },
+    'freegeoip': {
+        'api': 'https://extreme-ip-lookup.com/json/'
+    },
+    'rpc': {
+        'host': '127.0.0.1',
+        'port': '52544',
+        'user': '$rpcuser',
+        'pass': '$rpcpassword',
+        'timeout': 12000, // 12 seconds
+    }
 };
 
 module.exports = config;
 EOL
+
+
+
+
     nodejs ./cron/block.js
     nodejs ./cron/coin.js
     nodejs ./cron/masternode.js
@@ -307,14 +298,12 @@ then
     installDaemon
     installNginx
     installMongo
-    #installBulwark
     installNodeAndYarn
     installBlockEx
-    echo "Finished installation!"
+    echo -e "${GREEN}Finished installation!${NC}"
 else
     cd $EXPLORERFOLDER/blockex
     git pull
     pm2 restart index
     echo "BlockEx updated!"
 fi
-
