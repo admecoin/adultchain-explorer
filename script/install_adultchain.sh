@@ -2,14 +2,13 @@
 # Bulwark install script
 # Heavily tweaked to work with AdultChain by Cryptokkie
 # https://raw.githubusercontent.com/Cryptokkie/bulwark-explorer/master/script/install_adultchain.sh
-echo -e "${GREEN}Setting up variables...${NC}"
-
-# Variables
 
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
+
+echo -e "${GREEN}Setting up variables...${NC}"
 
 # Paths
 EXPLORERFOLDER='/home/explorer'
