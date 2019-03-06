@@ -51,6 +51,9 @@ class Statistics extends Component {
     } else if (this.state.loading) {
       return this.renderLoading();
     }
+/*    console.log(this.props.coin.btc);
+    console.log(this.props.coin.btc.toFixed(8));
+    console.log(parseFloat(this.props.coin.btc).toFixed(8));*/
 
     let tTX = 0;
     this.state.txs.forEach((tx) => {
@@ -154,8 +157,8 @@ class Statistics extends Component {
           <div className="row">
             <div className="col-md-12 col-lg-6">
               <h3>XXX Price USD</h3>
-              <h4>{ numeral(this.props.coin.usd).format('$ 0,0.00') } { day }</h4>
-              <h5>{ numeral(this.props.coin.btc).format('0.00000000') } BTC</h5>
+              <h4>{ numeral(this.props.coin.usd).format('$ 0,0.00000') } { day }</h4>
+              <h5>{ parseFloat(this.props.coin.btc).toFixed(8) } BTC</h5>
               <div>
                 <GraphLineFull
                   color={ graphLineColor }
