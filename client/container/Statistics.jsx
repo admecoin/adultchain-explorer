@@ -51,9 +51,6 @@ class Statistics extends Component {
     } else if (this.state.loading) {
       return this.renderLoading();
     }
-/*    console.log(this.props.coin.btc);
-    console.log(this.props.coin.btc.toFixed(8));
-    console.log(parseFloat(this.props.coin.btc).toFixed(8));*/
 
     let tTX = 0;
     this.state.txs.forEach((tx) => {
@@ -103,7 +100,7 @@ class Statistics extends Component {
     });
     prices.forEach((v, k) => {
       avgPrice += v / l;
-      prices.set(k, numeral(v / l).format('0,0.00'));
+      prices.set(k, numeral(v / l).format('0,0.00000'));
     });
     avgHash = avgHash / hashes.size;
     avgMN = avgMN / mns.size;
@@ -121,7 +118,8 @@ class Statistics extends Component {
     // Get the current day of the month.
     const day = (<small>{ moment().format('MMM DD') }</small>);
 
-    const graphLineColor = '#ff52ff';
+    //const graphLineColor = '#ff52ff';
+    const graphLineColor = '#ff99ff';
 
     return (
       <div className="animated fadeInUp">

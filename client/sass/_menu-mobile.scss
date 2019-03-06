@@ -24,7 +24,8 @@
 	}
 
 	&__search-wrapper {
-		background: rgb(41, 77, 234);
+		/*background: rgb(41, 77, 234);*/
+		background: $dark-pink;
 		display: flex;
 		align-items: center;
 		flex-direction: row;

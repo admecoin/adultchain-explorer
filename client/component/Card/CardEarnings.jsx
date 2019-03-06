@@ -60,51 +60,6 @@ const CardEarnings = ({coin}) => {
     );
 };
 
-/*
-{<Card title="Estimated Earnings ( XXX / BTC / USD)">
-    <div className="row">
-        <div className="col-sm-12 col-md-3">
-            DAILY
-        </div>
-        <div className="col-sm-12 col-md-9">
-            { ncoin(day) } { ticker } / { nbtc(day * coin.btc) } BTC / { nusd(day * coin.usd) } USD
-        </div>
-    </div>
-    <div className="row">
-        <div className="col-sm-12 col-md-3">
-            WEEKLY
-        </div>
-        <div className="col-sm-12 col-md-9">
-            { ncoin(week) } { ticker } / { nbtc(week * coin.btc) } BTC / { nusd(week * coin.usd) } USD
-        </div>
-    </div>
-    <div className="row">
-        <div className="col-sm-12 col-md-3">
-            MONTHLY
-        </div>
-        <div className="col-sm-12 col-md-9">
-            { ncoin(month) } { ticker } / { nbtc(month * coin.btc) } BTC / { nusd(month * coin.usd) } USD
-        </div>
-    </div>
-    <div className="row">
-        <div className="col-sm-12 col-md-3">
-            YEARLY
-        </div>
-        <div className="col-sm-12 col-md-9">
-            { ncoin(year) } { ticker } / { nbtc(year * coin.btc) } BTC / { nusd(year * coin.usd) } USD
-        </div>
-    </div>
-    <div className="row">
-        <div className="col">
-            <small className="u--text-gray">
-                * Estimates based on current block subsidy and active masternodes.
-            </small>
-        </div>
-    </div>
-</Card>
-}
-*/
-
 
 CardEarnings.propTypes = {
     coin: PropTypes.object.isRequired
