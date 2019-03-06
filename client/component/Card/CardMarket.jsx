@@ -45,13 +45,13 @@ export default class CardStatus extends Component {
       <Card className="card--market" title="Market">
         <p className="card__data-main bariol">
           <CountUp
-            decimals={ 2 }
+            decimals={ 5 }
             duration={ 1 }
             end={ this.props.usd }
             prefix={ ticker + ' $' }
             start={ 0 } />
         </p>
-        <p className="card__data-sub">{ this.props.btc } BTC</p>
+        <p className="card__data-sub">{ numeral(this.props.btc).format('0,0.00000000') } BTC</p>
         <div className="card__info row">
           <div className="col-sm-12 col-md-6 col-lg-4">
             <p>
