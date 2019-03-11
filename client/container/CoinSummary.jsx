@@ -53,8 +53,13 @@ class CoinSummary extends Component {
                   status={ coin.status } />
               </div>
               <div className="col-md-12 col-lg-6">
-                <CardPoSCalc />
+                <CardMasternodeSummary
+                    offline={ coin.mnsOff }
+                    online={ coin.mnsOn }
+                    xAxis={ this.props.coins.map(c => c.createdAt) }
+                    yAxis={ this.props.coins.map(c => c.mnsOn ? c.mnsOn : 0.0) } />
               </div>
+
             </div>
             <div className="row">
               <div className="col-md-12 col-lg-6">
@@ -65,11 +70,7 @@ class CoinSummary extends Component {
                   yAxis={ this.props.coins.map(c => c.usd ? c.usd : 0.0) } />
               </div>
               <div className="col-md-12 col-lg-6">
-                <CardMasternodeSummary
-                  offline={ coin.mnsOff }
-                  online={ coin.mnsOn }
-                  xAxis={ this.props.coins.map(c => c.createdAt) }
-                  yAxis={ this.props.coins.map(c => c.mnsOn ? c.mnsOn : 0.0) } />
+                <CardPoSCalc />
               </div>
             </div>
           </div>
@@ -78,10 +79,10 @@ class CoinSummary extends Component {
               average={ coin.avgBlockTime }
               height={ height }
               posHeight={ blockchain.params.LAST_POW_BLOCK } />
-            <CardSeeSaw
+{/*            <CardSeeSaw
               average={ coin.avgBlockTime }
               height={ height }
-              ssHeight={ blockchain.params.LAST_SEESAW_BLOCK } />
+              ssHeight={ blockchain.params.LAST_SEESAW_BLOCK } />*/}
             <WatchList
               items={ watchlist }
               onSearch={ this.props.onSearch }

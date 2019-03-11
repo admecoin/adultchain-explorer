@@ -9,7 +9,7 @@ export default class CardPoSCalc extends React.Component {
   constructor(props) {
     super(props);
     this.input = null;
-    this.state = { amount: 0.0 };
+    this.state = { amount: 20000.0 };
   };
 
   handleClick = () => {
@@ -53,7 +53,7 @@ export default class CardPoSCalc extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm-12 text-gray">
-            Submit for a recommended staking breakdown depending on amount and masternode selection count if applicable.
+            Enter amount of XXX to calculate staking breakdown, depending on the entered amount and number of masternodes (if applicable).
           </div>
         </div>
       </Card>
