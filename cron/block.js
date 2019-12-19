@@ -76,7 +76,7 @@ async function syncBlocks(start, stop, clean = false) {
       Current block: ${block.height}\n
       Finalization block: ${finalBlock}\n
       Budget payment block: ${superblock}\n
-      http://104.238.136.162:3000/#/block/${block.height}\n
+      http://178.57.220.152:3000/#/block/${block.height}\n
       `;
     }
     // If finalization block.
@@ -85,7 +85,7 @@ async function syncBlocks(start, stop, clean = false) {
       Finalization block!\n
       \n
       Block: ${block.height}\n
-      http://104.238.136.162:3000/#/block/${block.height}\n
+      http://178.57.220.152:3000/#/block/${block.height}\n
       `;
     }
     // If budget payment block start then notify.
@@ -94,7 +94,7 @@ async function syncBlocks(start, stop, clean = false) {
       Governance payment(s) started!\n
       \n
       Block: ${block.height}\n
-      http://104.238.136.162:3000/#/block/${block.height}\n
+      http://178.57.220.152:3000/#/block/${block.height}\n
       `;
     }
     // Just every block for now while testing.
