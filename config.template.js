@@ -24,7 +24,7 @@ const config = {
     'ticker': 'UFTM'
   },
   'api': {
-    'host': 'https://explorer.unicorns-and-poop-rainbows.com',
+    'host': '178.57.220.152',
     'port': '443',
     'prefix': '/api',
     'timeout': '5s'
@@ -45,9 +45,9 @@ const config = {
   },
   'rpc': {
     'host': '127.0.0.1',
-    'port': '52541',
-    'user': 'bulwarkrpc',
-    'pass': 'someverysafepassword',
+        'port': '15715',
+        'user': '5b0g5t67vlxOC',
+        'pass': 'elfFXFTmgBNB04omsnMDcPSs1hetQWfa',
     'timeout': 8000, // 8 seconds
   },
   'slack': {
